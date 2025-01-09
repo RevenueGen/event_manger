@@ -3,8 +3,12 @@ import { Pressable, StyleSheet, Text, ToastAndroid, View } from "react-native";
 import UserProfile from "../../components/UserHome/Profile";
 import Attendence from "../../components/UserHome/Attendence";
 import { GLOBALS } from "../../styles/Global";
+import { NativeStackScreenProps } from "@react-navigation/native-stack";
+import { RootStackParamList } from "../../App";
 
-const Home = () => {
+type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
+
+const Home : React.FC<HomeScreenProps>= ({navigation}) => {
   return (
     <>
       <View style={styles.buttonParent}>
@@ -14,10 +18,12 @@ const Home = () => {
         </View>
         <View style={styles.viewStyle}>
           <Pressable
-            onPress={() => ToastAndroid.show("Report Downloading....", 1000)}
-            style={({ press }: any) => [
+            onPress={() => {
+              navigation.navigate("Report", {itemId : 42 })
+            }}
+            style={({ pressed }: any) => [
               styles.reportBtn,
-              press ? { backgroundColor: "gray" } : null,
+              pressed ? styles.pressAblePressed : null,
             ]}
           >
             <Text style={styles.reportLable}>Report</Text>
@@ -29,6 +35,9 @@ const Home = () => {
 };
 
 const styles = StyleSheet.create({
+  pressAblePressed : {
+    backgroundColor : "gray"
+  },
   viewStyle: {
     width: "100%",
   },
