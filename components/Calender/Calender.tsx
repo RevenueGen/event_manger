@@ -5,6 +5,12 @@ import { GLOBALS } from "../../styles/Global";
 import Icon from "react-native-vector-icons/Feather";
 
 const Calender = () => {
+  const arrr1 = [1, 2, 3, 4, 5, 6, 7];
+  const arrr2 = [8, 9, 10, 11, 12, 13, 14];
+  const arrr3 = [15, 16, 17, 18, 19, 20, 21];
+  const arrr4 = [22, 23, 24, 25, 26, 27, 28];
+  const arrr5 = [29, 30, 31];
+
   return (
     <View style={styles.calender}>
       <View style={styles.mainCalender}>
@@ -40,19 +46,133 @@ const Calender = () => {
         </View>
       </View>
       {/* Days Box */}
-      <View style={{
-        display : "flex",
-        gap : 10,
-      }}>
+      <View
+        style={{
+          display: "flex",
+          gap: 10,
+        }}
+      >
         <View style={styles.dayView}>
+          <Pressable
+            style={[styles.dayBtn, { borderColor: GLOBALS.highLight }]}
+          >
+            <Text style={[styles.dayLable, {color : GLOBALS.highLight}]}>S</Text>
+          </Pressable>
+          <Pressable style={styles.dayBtn}>
+            <Text style={styles.dayLable}>M</Text>
+          </Pressable>
+          <Pressable style={styles.dayBtn}>
+            <Text style={styles.dayLable}>T</Text>
+          </Pressable>
+          <Pressable style={styles.dayBtn}>
+            <Text style={styles.dayLable}>W</Text>
+          </Pressable>
+          <Pressable style={styles.dayBtn}>
+            <Text style={styles.dayLable}>T</Text>
+          </Pressable>
+          <Pressable style={styles.dayBtn}>
+            <Text style={styles.dayLable}>F</Text>
+          </Pressable>
           <Pressable style={styles.dayBtn}>
             <Text style={styles.dayLable}>S</Text>
           </Pressable>
         </View>
-        <View style={styles.dayView}>
-          <Pressable style={styles.dayBtn}>
-            <Text style={styles.dayLable}>8</Text>
-          </Pressable>
+        <View style={styles.dayViewMain}>
+          <View style={styles.dayView}>
+            {arrr1.map((ele, index) => {
+              if (index === 0) {
+                return (
+                  <Pressable
+                    style={[styles.dayBtn, { borderColor: GLOBALS.highLight }]}
+                  >
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              } else {
+                return (
+                  <Pressable style={[styles.dayBtn]}>
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              }
+            })}
+          </View>
+          <View style={styles.dayView}>
+            {arrr2.map((ele, index) => {
+              if (index === 0) {
+                return (
+                  <Pressable
+                    style={[styles.dayBtn, { borderColor: GLOBALS.highLight }]}
+                  >
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              } else {
+                return (
+                  <Pressable style={[styles.dayBtn]}>
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              }
+            })}
+          </View>
+          <View style={styles.dayView}>
+            {arrr3.map((ele, index) => {
+              if (index === 0) {
+                return (
+                  <Pressable
+                    style={[styles.dayBtn, { borderColor: GLOBALS.highLight }]}
+                  >
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              } else {
+                return (
+                  <Pressable style={[styles.dayBtn, {backgroundColor : GLOBALS.highLight}]}>
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              }
+            })}
+          </View>
+          <View style={styles.dayView}>
+            {arrr4.map((ele, index) => {
+              if (index === 0) {
+                return (
+                  <Pressable
+                    style={[styles.dayBtn, { borderColor: GLOBALS.highLight }]}
+                  >
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              } else {
+                return (
+                  <Pressable style={[styles.dayBtn, {backgroundColor : GLOBALS.highLight}]}>
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              }
+            })}
+          </View>
+          <View style={styles.dayView}>
+            {arrr5.map((ele, index) => {
+              if (index === 0) {
+                return (
+                  <Pressable
+                    style={[styles.dayBtn, { borderColor: GLOBALS.highLight }]}
+                  >
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              } else {
+                return (
+                  <Pressable style={[styles.dayBtn]}>
+                    <Text style={styles.dayLable}>{ele}</Text>
+                  </Pressable>
+                );
+              }
+            })}
+          </View>
         </View>
       </View>
     </View>
@@ -154,8 +274,17 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     gap: 10,
-    justifyContent: "center",
+    justifyContent: "flex-start",
   },
+  
+  dayViewMain : {
+    width : "100%",
+    height : "auto",
+    display : "flex",
+    flexDirection : "column",
+    gap: 10,
+    justifyContent: "center",
+  }
 });
 
 export default Calender;

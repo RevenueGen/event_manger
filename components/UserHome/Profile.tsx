@@ -27,7 +27,9 @@ const HomeStyle = StyleSheet.create({
     height: 50,
     padding: 0,
     borderRadius: 50,
-    backgroundColor: "yellow",
+    backgroundColor: GLOBALS.primary,
+    borderColor : "#EEEEEE",
+    borderWidth : 1,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -71,7 +73,7 @@ function UserProfile() {
     <View style={HomeStyle.mainDiv}>
       <View style={HomeStyle.profileDiv}>
         <View style={HomeStyle.profilePic}>
-          <Icon name="user" size={29} color={"black"} />
+          <Icon name="user" size={29} color={"#EEEEEE"} />
         </View>
         <View style={HomeStyle.labels}>
           <Text style={HomeStyle.headingText}>Ashutosh Paliwal</Text>
