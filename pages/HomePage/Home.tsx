@@ -1,14 +1,33 @@
-import React from "react";
-import { Pressable, StyleSheet, Text, ToastAndroid, View } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { Animated, PanResponder, Pressable, StyleSheet, Text, ToastAndroid, View } from "react-native";
 import UserProfile from "../../components/UserHome/Profile";
 import Attendence from "../../components/UserHome/Attendence";
 import { GLOBALS } from "../../styles/Global";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../App";
+import Loading from "../../components/Loader/Loader";
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, "Home">;
 
 const Home : React.FC<HomeScreenProps>= ({navigation}) => {
+  const [loading, setLoading] = useState<boolean>(false);
+  
+
+  useEffect(()=>{
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false)
+    }, (1000));
+  }, [])
+
+  if(loading){
+    return(
+      <>
+        <Loading/>
+      </>
+    )
+  }
+
   return (
     <>
       <View style={styles.buttonParent}>

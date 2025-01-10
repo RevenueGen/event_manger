@@ -1,15 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import Icon from "react-native-vector-icons/Feather";
 import Material from "react-native-vector-icons/MaterialIcons"
 import { GLOBALS } from "../../styles/Global";
 
-const MenuCard = ({ name, iconName, onPress, text, material }: { name: string, iconName? : string | "add", onPress? : () => void, text?: string, material?:boolean}) => {
+interface MenuCardProps {
+  name: string, 
+  iconName? : string | "add", 
+  onPress? : () => void, 
+  text?: string, 
+  material?:boolean,
+  checkIn? : boolean
+}
+
+const MenuCard:React.FC<MenuCardProps> = ({ name, iconName, onPress, text, material, checkIn=false }) => {
+  console.log({checkIn})
+  
   return (
-    <Pressable onPress={onPress} style={({pressed})=> [MenuCardStyle.presentCard, pressed ? MenuCardStyle.onPressCard : null]}>
-      <View style={MenuCardStyle.labelIconView}>
-        <Text style={MenuCardStyle.mainLabel}>{name}</Text>
-        {iconName && !material ? <Icon name={iconName} size={20} color={"#EEEEEE"}/> :<Material name={iconName as string} size={20} color={"#EEEEEE"}/>}
+    <Pressable onPress={onPress} style={({pressed})=> [MenuCardStyle.presentCard, checkIn || pressed ? {borderColor : GLOBALS.highLight, backgroundColor : GLOBALS.primary} : null]}>
+      <View style={[MenuCardStyle.labelIconView]}>
+        <Text style={checkIn ? MenuCardStyle.onClickMainLable : MenuCardStyle.mainLabel}>{name}</Text>
+        {iconName && !material ? <Icon name={iconName} size={20} color={checkIn ? GLOBALS.highLight : ("#EEEEEE")}/> :<Material name={iconName as string} size={20} color={"#EEEEEE"}/>}
       </View>
       <Text style={MenuCardStyle.timeLable}>{text}</Text>
     </Pressable>
@@ -48,9 +59,11 @@ const MenuCardStyle = StyleSheet.create({
     fontWeight : "normal",
     opacity : 0.5
   },
-  onPressCard : {
-    backgroundColor : "#677080"
-  }
+  onClickMainLable: {
+    color : GLOBALS.highLight,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
 });
 
 export default MenuCard;

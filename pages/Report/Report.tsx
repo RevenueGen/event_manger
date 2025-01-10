@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import { View } from "react-native";
 import { GLOBALS } from "../../styles/Global";
@@ -6,6 +6,7 @@ import Calender from "../../components/Calender/Calender";
 import MenuCard from "../../components/UserHome/MenuCard";
 import LableDivider from "../../components/UserHome/LableDivider";
 import Stats from "../../components/UserHome/Stats";
+import Loading from "../../components/Loader/Loader";
 
 const data = [
   {
@@ -22,7 +23,26 @@ const data = [
   },
 ];
 
+
+
 const Report = () => {
+  const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(()=>{
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false)
+    }, (1000));
+  }, [])
+
+  if(loading){
+    return(
+      <>
+        <Loading/>
+      </>
+    )
+  }
+  
   return (
     <>
       <ScrollView style={
