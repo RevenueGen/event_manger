@@ -30,7 +30,7 @@ const MenuCard:React.FC<MenuCardProps> = ({ name, iconName, onPress, text, mater
 const MenuCardStyle = StyleSheet.create({
   presentCard: {
     width: "45%",
-    height: 100,
+    height: 80,
     backgroundColor: GLOBALS.secondary,
     padding: 15,
     borderStyle : "solid",
