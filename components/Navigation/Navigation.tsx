@@ -45,7 +45,7 @@ const Navigation: React.FC = () => {
       marterial: false,
     },
     {
-      item: "EVENTS",
+      item: "EXPENCES",
       label: "Expences",
       icon: "account-balance-wallet",
       marterial: true,

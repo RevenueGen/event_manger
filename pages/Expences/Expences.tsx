@@ -22,7 +22,7 @@ const Expences:React.FC = () => {
     
   return (
     <View style={styles.mainExpences}>
-        <Text>Events</Text>
+        <Text>Expences</Text>
     </View>
   )
 }
