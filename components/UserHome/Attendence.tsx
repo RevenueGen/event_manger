@@ -6,27 +6,16 @@ import MenuCard from "./MenuCard";
 import LableDivider from "./LableDivider";
 
 const Attendence = () => {
-  const [checkIn , setCheckIn] = useState<boolean>(false);
-  const [checkOut, setCheckOut] = useState<boolean>(false);
-    const checkInPress = () => {
-        setCheckIn(true);
-        setCheckOut(false);
-        ToastAndroid.show("Present", 1000);
-    }
-    const checkOutPress = () => {
-        setCheckIn(false);
-        setCheckOut(true);
-        ToastAndroid.show("Present", 1000);
-    }
+  
   return (
     <View style={AttendenceStyle.attendenceDiv}>
       <View style={AttendenceStyle.attendenceMenus}>
-        <MenuCard name="2:55" iconName={"arrow-up-right"} text="Check In" onPress={checkInPress} checkIn={checkIn}/>
-        <MenuCard name="2:55" iconName={"arrow-up-right"} text="Check Out" onPress={checkOutPress} checkIn={checkOut} />
+        <MenuCard name="Users" iconName={"users"} text="User Track" onPress={()=>{}} checkIn={false}/>
+        <MenuCard name="Inventory" iconName={"inventory"} material={true}  text="Stocks Track" onPress={()=>{}} checkIn={false} />
       </View> 
       <View style={AttendenceStyle.attendenceMenus}>
-        <MenuCard name="90%" iconName={"check-square"} text="On Time" onPress={()=>{}}/>
-        <MenuCard name="28 Days" iconName={"file-text"} text="Total Present"/>
+        <MenuCard name="Events" iconName={"event"} text="Total Events : 3" onPress={()=>{}} material={true}/>
+        <MenuCard name="Expences" iconName={"account-balance-wallet"} material={true} text="Total : $ 200"/>
       </View>
       <LableDivider label="Add More" other="See List"/>
       <View style={AttendenceStyle.attendenceMenus}>
@@ -39,10 +28,13 @@ const Attendence = () => {
 const AttendenceStyle = StyleSheet.create({
     
   attendenceDiv: {
+    position : "absolute",
+    top : 70,
     marginTop : 10,
     borderTopLeftRadius : 30,
     borderTopRightRadius : 30,
     width: "100%",
+    height : 650,
     display: "flex",
     gap : 20,
     padding : 20,
