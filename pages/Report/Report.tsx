@@ -3,7 +3,7 @@ import { ScrollView, StyleSheet } from "react-native";
 import { View } from "react-native";
 import { GLOBALS } from "../../styles/Global";
 import Calender from "../../components/Calender/Calender";
-import MenuCard from "../../components/UserHome/MenuCard";
+import MenuCard from "../../components/Card/MenuCard";
 import LableDivider from "../../components/UserHome/LableDivider";
 import Stats from "../../components/UserHome/Stats";
 import Loading from "../../components/Loader/Loader";

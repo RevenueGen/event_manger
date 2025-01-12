@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Pressable, StyleSheet, Text, ToastAndroid } from "react-native";
 import { View } from "react-native";
 import { GLOBALS } from "../../styles/Global";
-import MenuCard from "./MenuCard";
+import MenuCard from "../Card/MenuCard";
 import LableDivider from "./LableDivider";
 
 const Attendence = () => {

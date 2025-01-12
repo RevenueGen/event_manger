@@ -14,8 +14,7 @@ interface MenuCardProps {
 }
 
 const MenuCard:React.FC<MenuCardProps> = ({ name, iconName, onPress, text, material, checkIn=false }) => {
-  console.log({checkIn})
-  
+
   return (
     <Pressable onPress={onPress} style={({pressed})=> [MenuCardStyle.presentCard, checkIn || pressed ? {borderColor : GLOBALS.highLight, backgroundColor : GLOBALS.primary} : null]}>
       <View style={[MenuCardStyle.labelIconView]}>
