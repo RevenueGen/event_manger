@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
   navigation: {
     width: "100%",
     height: 80,
-    position: "absolute",
+    position: "static",
     zIndex : 12,
     bottom: 0,
     backgroundColor: GLOBALS.primary,
