@@ -49,7 +49,7 @@ export default function App() {
         <StatusBar animated={true} backgroundColor={GLOBALS.secondary} />
         <NavigationContainer>
           <Stack.Navigator
-            initialRouteName={auth ? "Home" : "Login"}
+            initialRouteName={auth ? "Test" : "Login"}
             screenOptions={{ headerShown: false }}
           >
             <Stack.Screen name="Home" component={HomeScreen} />

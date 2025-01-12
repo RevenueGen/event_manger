@@ -6,39 +6,16 @@ import {
 import { View } from "react-native";
 import React, { useRef } from "react";
 import { GLOBALS } from "../../styles/Global";
+import { Text } from "react-native";
 
 
 const Example: React.FC = () => {
-  const panx = useRef(new Animated.Value(0)).current;
-  const pany = useRef(new Animated.Value(0)).current;
-
-
-  const panResponder = useRef(
-    PanResponder.create({
-      onMoveShouldSetPanResponder: () => true,
-      onPanResponderMove: Animated.event([null, { dx: pany, dy: pany}]),
-      onPanResponderRelease: () => {
-        panx.extractOffset();
-        pany.extractOffset();
-      },
-    })
-  ).current;
+  
 
   return (
     <>
       <View style={styles.container}>
-        <Animated.View
-          style={{
-              position: "absolute",
-              top : 0,
-            transform: [{ translateX: panx }, { translateY: pany }],
-          }}
-          {...panResponder.panHandlers}
-        >
-          <View style={[styles.box ,{
-            transform : [{translateX : panx}, {translateY : pany}]
-          }]} />
-        </Animated.View>
+        <Text>Example</Text>
       </View>
     </>
   );
